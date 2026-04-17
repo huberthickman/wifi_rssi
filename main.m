@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreWLAN/CoreWLAN.h>
 
-int main(int argc, const char * argv[]) {
+int main() {
+//int main(int argc, const char * argv[]) {
     @autoreleasepool {
         CWWiFiClient *client = [CWWiFiClient sharedWiFiClient];
         CWInterface *iface = client.interface;
@@ -25,11 +26,7 @@ int main(int argc, const char * argv[]) {
             return 3;
         }
 
-        NSString *ssid = iface.ssid ?: @"<hidden or unavailable>";
-
-        printf("Interface: %s\n", iface.interfaceName.UTF8String);
-        printf("SSID: %s\n", ssid.UTF8String);
-        printf("RSSI: %ld dBm\n", (long)rssi);
+        printf("agrCtlRSSI: %ld\n", (long)rssi);
 
         return 0;
     }
